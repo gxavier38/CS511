@@ -1,0 +1,22 @@
+set(binary_resolution).
+clear(print_initial_clauses).
+clear(print_kept).
+clear(print_given).
+assign(max_seconds,5).
+assign(stats,none).
+
+formulas(assumptions).
+
+% Axioms of group theory (from lecture example)
+
+m(m(x,y),z) = m(x,m(y,z)).  % m is associative
+m(x,e) = x.                 % e is a right identity
+m(x,i(x)) = e.              % i(x) is right inverse of x
+
+end_of_list.
+
+formulas(goals).
+
+m(x,y) = m(y,x).			% Check for Abelian group
+
+end_of_list.
