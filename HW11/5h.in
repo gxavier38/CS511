@@ -27,15 +27,16 @@ L(z,GLB(x,y)) <-> L(z,x) & L(z,y).
 GLB(x,LUB(y,z)) = LUB(GLB(x,y), GLB(x,z)).
 LUB(x,GLB(y,z)) = GLB(LUB(x,y), LUB(x,z)).
 
-% Heyting
-L(GLB(x,y),z) <-> L(x,R(y,z)).
+% Additional constraints
+-((all x all y all z R(x,GLB(y,z)) = GLB(R(x,y),R(x,z))) & 
+(all x all y L(y,R(x,y)))).
 
 end_of_list.
 
 formulas(goals).
 
-% Goal
-R(x,GLB(y,z)) = GLB(R(x,y),R(x,z)) & L(y,R(x,y)).
+% Not Heyting
+-(L(GLB(x,y),z) <-> L(x,R(y,z))).
 
 end_of_list.
 
